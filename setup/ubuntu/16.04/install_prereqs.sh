@@ -8,15 +8,16 @@ apt install \
   libopenni2-dev \
   libopencv-dev \
   libqhull-dev \
-  libqt4-dev \
-  libqwt-dev \
+  qt5-default \
+  qtscript5-dev \
+  qtmultimedia5-dev \
+  qttools5-dev \
+  libqwt-qt5-dev \
+  qtbase5-private-dev \
   libusb-1.0-0-dev \
-  libvtk5-dev \
-  libvtk5-qt4-dev \
   python-dev \
   python-matplotlib \
   python-numpy \
   python-pip \
   python-scipy \
-  python-vtk \
   python-yaml \
