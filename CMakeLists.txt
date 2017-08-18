@@ -49,6 +49,13 @@ set(CMAKE_ARGS_FOR_EXTERNALS
   "-DCMAKE_C_FLAGS:STRING=${CMAKE_C_FLAGS}"
 )
 
+if(APPLE)
+  list(APPEND
+    CMAKE_ARGS_FOR_EXTERNALS
+    "-DCMAKE_INSTALL_RPATH:STRING=@loader_path/../lib"
+  )
+endif()
+
 # Add external projects
 # NOTE: For bazel < 0.5.2, two external projects that use Bazel must not build simultaneously.
 # One can depend on another one, which will force the order in which they are built.
@@ -123,7 +130,6 @@ ExternalProject_Add(director
     -DUSE_KINECT:BOOL=${WITH_PERCEPTION}
     -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_INSTALL_PREFIX}
     -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
-    -DCMAKE_INSTALL_RPATH:STRING=@loader_path/../lib
     ${CMAKE_ARGS_FOR_EXTERNALS}
   INSTALL_COMMAND ""
   DEPENDS drake
